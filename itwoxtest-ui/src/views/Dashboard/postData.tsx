@@ -8,11 +8,25 @@ interface Post {
   body: string;
 }
 
-interface Props {
-  data: Post[];
+interface Comment {
+  postId: number;
+  id: number;
+  name: string;
+  email: string;
+  body: string;
 }
 
-const PostData = ({ data }: Props) => {
+interface Props {
+  posts: Post[];
+  comments: Comment[];
+}
+
+const PostData: React.FC<Props> = ({ posts, comments }) => {
+  // Create a function to count comments for each post
+  const countCommentsForPost = (postId: number) => {
+    return comments.filter((comment) => comment.postId === postId).length;
+  };
+
   // Define the columns for your table
   const columns = [
     {
@@ -35,9 +49,14 @@ const PostData = ({ data }: Props) => {
       dataIndex: 'userId',
       key: 'userId',
     },
+    {
+      title: 'Comments Count', // New column for comments count
+      key: 'commentsCount',
+      render: (text: any, record: Post) => countCommentsForPost(record.id),
+    },
   ];
 
-  return <Table dataSource={data} columns={columns} />;
+  return <Table dataSource={posts} columns={columns} />;
 };
 
 export default PostData;

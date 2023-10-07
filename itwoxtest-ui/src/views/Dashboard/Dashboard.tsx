@@ -9,9 +9,17 @@ interface Post {
   title: string;
   body: string;
 }
+interface Comment {
+  postId: number;
+  id: number;
+  name: string;
+  email: string;
+  body: string;
+}
 
 const Dashboard = () => {
   const [posts, setPosts] = useState<Post[]>([]);
+  const [comments, setComments] = useState<Comment[]>([]);
 
   useEffect(() => {
     // Define a function to fetch the data
@@ -23,6 +31,15 @@ const Dashboard = () => {
         console.error('Error fetching data:', error);
       }
     };
+    const fetchComments = async () => {
+      try {
+        const response = await axios.get<Comment[]>('https://jsonplaceholder.typicode.com/comments');
+        setComments(response.data);
+      } catch (error) {
+        console.error('Error fetching comments data:', error);
+      }
+    };
+    fetchComments();
 
     // Call the fetchData function when the component mounts
     fetchData();
@@ -30,7 +47,7 @@ const Dashboard = () => {
 
   return (
     <div>
-      <PostData data={posts} />
+       <PostData posts={posts} comments={comments} />
     </div>
   );
 };
