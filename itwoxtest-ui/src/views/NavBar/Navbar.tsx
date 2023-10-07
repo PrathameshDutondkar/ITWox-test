@@ -1,8 +1,9 @@
 import React from "react";
 import "./navbar.scss";
 import { Link, useNavigate } from "react-router-dom";
+import logo from "../../assets/it-wox-logo.svg"
 
-const Navbar= () => {
+const Navbar = () => {
   const email = localStorage.getItem("user");
   const navigate = useNavigate();
 
@@ -13,15 +14,16 @@ const Navbar= () => {
 
   return (
     <div className="navbar-container">
+      <span> <img src={logo} alt="logo"/></span>
       <span className="menu-container">
         <li key="Get help with research" className="tab-li">
           {email ? (
-            <div className="tab" onClick={handleSignOut}>
+            <button onClick={handleSignOut} className="sign-out-button">
               Sign Out
-            </div>
+            </button>
           ) : (
-            <Link to="/signin" className="tab">
-              Sign In
+            <Link to="/signin">
+              <button className="sign-in-button">Sign In</button>
             </Link>
           )}
         </li>

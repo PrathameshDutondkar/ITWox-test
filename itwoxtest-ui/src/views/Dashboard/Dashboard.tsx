@@ -10,6 +10,7 @@ const Dashboard = () => {
 
   return (
     <div>
+      <h2>Dashboard</h2>
       <PostData posts={posts} comments={comments} /> {/* Pass posts and comments as props */}
     </div>
   );
