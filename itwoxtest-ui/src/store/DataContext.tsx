@@ -36,7 +36,8 @@ export const DataContextProvider: React.FC<DataContextProviderProps> = ({ childr
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get<Post[]>('https://jsonplaceholder.typicode.com/posts');
+        // const response = await axios.get<Post[]>('https://jsonplaceholder.typicode.com/posts');
+        const response = await axios.get<Post[]>(`${process.env.REACT_APP_BACKEND_URL}/posts`);
         setPosts(response.data);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -45,7 +46,9 @@ export const DataContextProvider: React.FC<DataContextProviderProps> = ({ childr
 
     const fetchComments = async () => {
       try {
-        const response = await axios.get<Comment[]>('https://jsonplaceholder.typicode.com/comments');
+        // const response = await axios.get<Comment[]>('https://jsonplaceholder.typicode.com/comments');
+        const response = await axios.get<Comment[]>(`${process.env.REACT_APP_BACKEND_URL}/comments`);
+
         setComments(response.data);
       } catch (error) {
         console.error('Error fetching comments data:', error);
