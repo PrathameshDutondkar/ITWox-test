@@ -8,16 +8,14 @@ import LandingPage from './views/LandingPage.js/landingPage';
 function App() {
   return (
     <div className="App">
-      <Router>
+      
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/signin" element={<LandingPage />} />
-          <Route path="/dashboard" element={<LandingPage />} />
-
-
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/aboutus" element={<Dashboard />} />
         </Routes>
-      </Router>
+      
     </div>
   );
 }
