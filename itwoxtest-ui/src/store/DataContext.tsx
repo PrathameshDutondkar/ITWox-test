@@ -1,7 +1,6 @@
 import React, { createContext, useContext, useEffect, useState, ReactNode } from 'react';
 import axios from 'axios';
 
-
 interface Post {
   userId: number;
   id: number;
@@ -43,10 +42,7 @@ export const DataContextProvider: React.FC<DataContextProviderProps> = ({ childr
         setPosts(response.data);
         setError(null);
       } catch (error) {
-        console.error('Error fetching data:', error);
         setError('Failed to fetch data');
-      } finally {
-        setLoading(false);
       }
     };
 
@@ -56,17 +52,16 @@ export const DataContextProvider: React.FC<DataContextProviderProps> = ({ childr
         setComments(response.data);
         setError(null);
       } catch (error) {
-        console.error('Error fetching comments data:', error);
         setError('Failed to fetch comments data');
-      } finally {
-        setLoading(false);
       }
     };
 
     Promise.all([fetchData(), fetchComments()])
-      .catch((error) => {
-        console.error('Error fetching data:', error);
+      .catch(() => {
         setError('Failed to fetch data');
+      })
+      .finally(() => {
+        setLoading(false); // Set loading to false once both requests are completed.
       });
 
   }, []);
@@ -80,9 +75,7 @@ export const DataContextProvider: React.FC<DataContextProviderProps> = ({ childr
 
   return (
     <DataContext.Provider value={contextValue}>
-     
-        {children}
-    
+      {children}
     </DataContext.Provider>
   );
 };

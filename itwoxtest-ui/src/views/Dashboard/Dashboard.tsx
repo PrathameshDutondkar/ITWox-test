@@ -12,7 +12,7 @@ const Dashboard = () => {
     <div>
       <h2>Dashboard</h2>
       {loading ? (
-        <Spin size="large" tip="Loading..." />
+        <Spin size="large" />
       ) : error ? (
         <p>Error: {error}</p>
       ) : posts.length === 0 ? (
