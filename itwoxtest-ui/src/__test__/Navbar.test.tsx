@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen,  } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import Navbar from "../views/NavBar/Navbar";
 
@@ -29,7 +29,9 @@ describe("Navbar Component", () => {
     renderNavbar("/");
     const signInButton = screen.getByText("Sign In");
     expect(signInButton).toBeInTheDocument();
-  });
+  })
+  
+  
   test("does not render on the Sign In page", () => {
     renderNavbar("/signin");
     expect(screen.queryByText("Sign In")).toBeNull();

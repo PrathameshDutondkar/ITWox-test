@@ -5,7 +5,7 @@ import { DataContextProvider } from '../store/DataContext';
 
 test('Dashboard name is present', () => {
     render(
-        <DataContextProvider> {/* Wrap Dashboard component with DataContextProvider */}
+        <DataContextProvider> 
           <Dashboard />
         </DataContextProvider>
       );
