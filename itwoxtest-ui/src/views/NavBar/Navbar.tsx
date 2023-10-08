@@ -1,19 +1,23 @@
-import React from "react";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import logo from "../../assets/it-wox-logo.svg";
 import "./navbar.scss";
 
 const Navbar = () => {
   const email = localStorage.getItem("user");
-  const navigate = useNavigate();
   const location = useLocation();
 
   const handleSignOut = () => {
     localStorage.removeItem("user");
-    navigate("/");
   };
 
   const shouldShowNavbar = location.pathname !== "/signin";
+
+  useEffect(() => {
+    if (location.pathname === "/") {
+      handleSignOut();
+    }
+  }, [location.pathname]);
 
   return shouldShowNavbar ? (
     <nav className="navbar-container">
