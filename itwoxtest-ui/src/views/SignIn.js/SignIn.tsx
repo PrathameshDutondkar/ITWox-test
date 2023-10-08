@@ -1,10 +1,9 @@
-import React from 'react';
-import { Form, Input, Button, Checkbox } from 'antd';
-import { useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify'; 
-import 'react-toastify/dist/ReactToastify.css';
-import "./signin.scss"
-
+import React from "react";
+import { Form, Input, Button } from "antd";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import "./signin.scss";
 
 type FormValues = {
   email: string;
@@ -16,52 +15,57 @@ const SignIn = () => {
 
   const handleAuthentication = (values: FormValues) => {
     const { email, password } = values;
-    const correctEmail = 'prathameshdutondkar97@gmail.com';
-    const correctPassword = 'Prathamesh@13';
+    const correctEmail = "prathameshdutondkar97@gmail.com";
+    const correctPassword = "Prathamesh@13";
 
     if (email === correctEmail && password === correctPassword) {
-      localStorage.setItem('user', JSON.stringify({ email }));
-      navigate('/dashboard');
-      toast.success('Sign in successful!', { position: 'top-center' }); 
+      localStorage.setItem("user", JSON.stringify({ email }));
+      navigate("/dashboard");
+      toast.success("Sign in successful!", { position: "top-center" });
     } else {
-      toast.error('Authentication failed. Please check your credentials.', {
-        position: 'top-center',
-      }); 
+      toast.error("Authentication failed. Please check your credentials.", {
+        position: "top-center",
+      });
     }
   };
 
   return (
     <div className="signin-container">
+      <div className="background-image" />
+
       <div className="form-container">
         <h2 className="form-title">Sign In</h2>
-        <Form name="basic" initialValues={{ remember: true }} onFinish={handleAuthentication}>
+        <Form
+          name="basic"
+          initialValues={{ remember: true }}
+          onFinish={handleAuthentication}
+        >
           <Form.Item
             className="form-item"
             label="username"
             name="email"
             rules={[
-              { required: true, message: 'Please input your email address!' },
-              { type: 'email', message: 'Please enter a valid email address!' },
+              { required: true, message: "Please input your email address!" },
+              { type: "email", message: "Please enter a valid email address!" },
             ]}
           >
-            <Input placeholder="Enter your email address" />
+            <Input placeholder="Enter your email address" className="input" />
           </Form.Item>
 
           <Form.Item
             className="form-item"
             label="Password"
             name="password"
-            rules={[{ required: true, message: 'Please input your password!' }]}
+            rules={[{ required: true, message: "Please input your password!" }]}
           >
-            <Input.Password placeholder="Enter your password" />
-          </Form.Item>
-
-          <Form.Item name="remember" valuePropName="checked">
-            <Checkbox>Remember me</Checkbox>
+            <Input.Password
+              placeholder="Enter your password"
+              className="input"
+            />
           </Form.Item>
 
           <Form.Item className="form-button">
-            <Button type="primary" htmlType="submit">
+            <Button  htmlType="submit" className="custom-button">
               Sign In
             </Button>
           </Form.Item>
