@@ -37,7 +37,7 @@ const SignIn = () => {
         <Form name="basic" initialValues={{ remember: true }} onFinish={handleAuthentication}>
           <Form.Item
             className="form-item"
-            label="Email"
+            label="username"
             name="email"
             rules={[
               { required: true, message: 'Please input your email address!' },
