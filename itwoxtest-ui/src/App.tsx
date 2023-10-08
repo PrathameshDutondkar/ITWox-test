@@ -8,6 +8,7 @@ import SignIn from './views/SignIn.js/SignIn';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ErrorBoundary from './errorboundary/ErrorBoundary';
+import PrivateComponent from './components/PrivateComponent';
 
 function App() {
   return (
@@ -18,7 +19,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/signin" element={<SignIn />} />
+          <Route element={<PrivateComponent/>}>
           <Route path="/dashboard" element={<Dashboard />} />
+          </Route>
         </Routes>
         </ErrorBoundary>
       </DataContextProvider>

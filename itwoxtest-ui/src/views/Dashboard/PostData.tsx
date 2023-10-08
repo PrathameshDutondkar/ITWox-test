@@ -1,5 +1,5 @@
 import React from 'react';
-import { Table} from 'antd';
+import { Table } from 'antd';
 
 interface Post {
   userId: number;
@@ -22,8 +22,6 @@ interface Props {
 }
 
 const PostData: React.FC<Props> = ({ posts, comments }) => {
- 
-
   const countCommentsForPost = (postId: number) =>
     comments.filter((comment) => comment.postId === postId).length;
 
@@ -41,7 +39,7 @@ const PostData: React.FC<Props> = ({ posts, comments }) => {
 
   return (
     <div>
-        <Table dataSource={posts} columns={columns} />
+      <Table dataSource={posts} columns={columns} rowKey="id" /> 
     </div>
   );
 };
