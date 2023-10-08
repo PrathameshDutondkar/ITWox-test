@@ -2,7 +2,7 @@
 import React from 'react';
 import { useDataContext } from '../../store/DataContext';
 import './dashboard.scss';
-import PostData from './postData';
+import PostData from './PostData';
 import { Spin } from 'antd';
 
 const Dashboard = () => {
@@ -25,3 +25,4 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
+

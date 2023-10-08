@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useEffect, useState, ReactNode } from 'react';
 import axios from 'axios';
-import { Spin } from 'antd';
+
 
 interface Post {
   userId: number;
@@ -80,9 +80,9 @@ export const DataContextProvider: React.FC<DataContextProviderProps> = ({ childr
 
   return (
     <DataContext.Provider value={contextValue}>
-      <Spin spinning={loading} size="large">
+     
         {children}
-      </Spin>
+    
     </DataContext.Provider>
   );
 };
