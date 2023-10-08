@@ -1,7 +1,7 @@
 import React from "react";
-import "./navbar.scss";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import logo from "../../assets/it-wox-logo.svg";
+import "./navbar.scss";
 
 const Navbar = () => {
   const email = localStorage.getItem("user");
@@ -13,14 +13,13 @@ const Navbar = () => {
     navigate("/");
   };
 
-  // Conditionally render the Navbar based on the route
-  if (location.pathname === "/signin") {
-    return null; // Hide the Navbar on the /signin route
-  }
+  const shouldShowNavbar = location.pathname !== "/signin";
 
-  return (
-    <div className="navbar-container">
-      <span> <img src={logo} alt="logo"/></span>
+  return shouldShowNavbar ? (
+    <nav className="navbar-container">
+      <span>
+        <img src={logo} alt="IT WOX Logo" />
+      </span>
       <span className="menu-container">
         <li key="Get help with research" className="tab-li">
           {email ? (
@@ -34,8 +33,8 @@ const Navbar = () => {
           )}
         </li>
       </span>
-    </div>
-  );
+    </nav>
+  ) : null;
 };
 
 export default Navbar;
