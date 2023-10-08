@@ -1,5 +1,5 @@
 import React from 'react';
-import { Table } from 'antd';
+import { Table} from 'antd';
 
 interface Post {
   userId: number;
@@ -22,41 +22,28 @@ interface Props {
 }
 
 const PostData: React.FC<Props> = ({ posts, comments }) => {
-  // Create a function to count comments for each post
-  const countCommentsForPost = (postId: number) => {
-    return comments.filter((comment) => comment.postId === postId).length;
-  };
+ 
 
-  // Define the columns for your table
+  const countCommentsForPost = (postId: number) =>
+    comments.filter((comment) => comment.postId === postId).length;
+
   const columns = [
+    { title: 'ID', dataIndex: 'id', key: 'id' },
+    { title: 'Title', dataIndex: 'title', key: 'title' },
+    { title: 'Body', dataIndex: 'body', key: 'body' },
+    { title: 'User ID', dataIndex: 'userId', key: 'userId' },
     {
-      title: 'ID',
-      dataIndex: 'id',
-      key: 'id',
-    },
-    {
-      title: 'Title',
-      dataIndex: 'title',
-      key: 'title',
-    },
-    {
-      title: 'Body',
-      dataIndex: 'body',
-      key: 'body',
-    },
-    {
-      title: 'User ID',
-      dataIndex: 'userId',
-      key: 'userId',
-    },
-    {
-      title: 'Comments Count', // New column for comments count
+      title: 'Comments Count',
       key: 'commentsCount',
       render: (text: any, record: Post) => countCommentsForPost(record.id),
     },
   ];
 
-  return <Table dataSource={posts} columns={columns} />;
+  return (
+    <div>
+        <Table dataSource={posts} columns={columns} />
+    </div>
+  );
 };
 
 export default PostData;

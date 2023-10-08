@@ -3,15 +3,23 @@ import React from 'react';
 import { useDataContext } from '../../store/DataContext';
 import './dashboard.scss';
 import PostData from './postData';
-
+import { Spin } from 'antd';
 
 const Dashboard = () => {
-  const { posts, comments } = useDataContext(); // Use the useDataContext hook
+  const { posts, comments, loading, error } = useDataContext();
 
   return (
     <div>
       <h2>Dashboard</h2>
-      <PostData posts={posts} comments={comments} /> {/* Pass posts and comments as props */}
+      {loading ? (
+        <Spin size="large" tip="Loading..." />
+      ) : error ? (
+        <p>Error: {error}</p>
+      ) : posts.length === 0 ? (
+        <p>No posts available.</p>
+      ) : (
+        <PostData posts={posts} comments={comments} />
+      )}
     </div>
   );
 };
