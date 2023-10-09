@@ -1,4 +1,6 @@
-import React, { createContext, useContext, useState, ReactNode } from "react";
+// AuthProvider.js
+
+import React, { createContext, useContext, useState, ReactNode, useEffect } from "react";
 
 type User = {
   email: string;
@@ -27,14 +29,22 @@ type AuthProviderProps = {
 export const AuthProvider = ({ children }: AuthProviderProps) => {
   const [user, setUser] = useState<User | null>(null);
 
+  useEffect(() => {
+    
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    }
+  }, []);
+
   const signIn = (email: string, password: string) => {
-  
     const Email = "prathameshdutondkar97@gmail.com";
     const Password = "Prathamesh@13";
 
     if (email === Email && password === Password) {
-      setUser({ email });
-      localStorage.setItem("user", JSON.stringify({ email }));
+      const newUser = { email };
+      setUser(newUser);
+      localStorage.setItem("user", JSON.stringify(newUser));
       return true;
     } else {
       return false;
@@ -42,7 +52,6 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   };
 
   const signOut = () => {
-    // Add any sign-out logic if needed.
     setUser(null);
     localStorage.removeItem("user");
   };
