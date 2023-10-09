@@ -66,7 +66,7 @@ const SignIn = () => {
 
           <Form.Item className="form-button">
             <Button  htmlType="submit" className="custom-button">
-              Sign In
+                Signin
             </Button>
           </Form.Item>
         </Form>

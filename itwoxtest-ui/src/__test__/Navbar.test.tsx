@@ -32,7 +32,7 @@ describe("Navbar Component", () => {
   })
   
   
-  test("does not render on the Sign In page", () => {
+  test("Navbar does not render on the Sign In page", () => {
     renderNavbar("/signin");
     expect(screen.queryByText("Sign In")).toBeNull();
     expect(screen.queryByText("Sign Out")).toBeNull();

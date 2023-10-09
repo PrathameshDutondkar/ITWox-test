@@ -4,7 +4,7 @@ import './App.css';
 import { DataContextProvider } from './store/DataContext';
 import Dashboard from './views/Dashboard/Dashboard';
 import Home from './views/LandingPage/Landing';
-import SignIn from './views/SignIn.js/SignIn';
+import SignIn from './views/SignIn/SignIn';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ErrorBoundary from './errorboundary/ErrorBoundary';
