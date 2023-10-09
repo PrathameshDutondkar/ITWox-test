@@ -75,7 +75,7 @@ describe("SignIn Component", () => {
     );
     userEvent.click(submitButton);
   });
-  it("should not sign in a user with invalid credentials", () => {
+  test("should not sign in a user with invalid credentials", () => {
     render(
       <AuthProvider>
         <Router>

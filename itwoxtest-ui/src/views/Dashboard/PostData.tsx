@@ -21,7 +21,7 @@ interface Props {
   comments: Comment[];
 }
 
-const PostData: React.FC<Props> = ({ posts, comments }) => {
+const PostData = ({ posts, comments }: Props) => {
   const countCommentsForPost = (postId: number) =>
     comments.filter((comment) => comment.postId === postId).length;
 
