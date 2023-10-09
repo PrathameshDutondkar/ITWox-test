@@ -38,8 +38,9 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   }, []);
 
   const signIn = (email: string, password: string) => {
-    const Email = "prathameshdutondkar97@gmail.com";
-    const Password = "Prathamesh@13";
+    const Email = process.env.REACT_APP_EMAIL;
+    const Password = process.env.REACT_APP_PASSWORD;
+ 
 
     if (email === Email && password === Password) {
       const newUser = { email };

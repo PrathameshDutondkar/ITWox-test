@@ -26,7 +26,7 @@ const SignIn = () => {
   toast.error("Invalid email or password");
   }
   } catch (error) {
-  console.error("Authentication error:", error);
+  
   toast.error("An error occurred during sign-in");
   } finally {
   setLoading(false);
