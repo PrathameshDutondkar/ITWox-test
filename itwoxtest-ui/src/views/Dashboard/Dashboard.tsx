@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDataContext } from '../../store/DataContext';
+import { useDataContext } from '../../context/DataContext';
 import './dashboard.scss';
 import PostData from './PostData';
 import { Spin } from 'antd';

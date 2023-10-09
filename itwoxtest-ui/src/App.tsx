@@ -1,7 +1,8 @@
 import React from 'react';
 import {  Route, Routes } from 'react-router-dom';
 import './App.css';
-import { DataContextProvider } from './store/DataContext';
+import { DataContextProvider } from './context/DataContext';
+
 import Dashboard from './views/Dashboard/Dashboard';
 import Home from './views/LandingPage/Landing';
 import SignIn from './views/SignIn/SignIn';
@@ -25,6 +26,7 @@ function App() {
         </Routes>
         </ErrorBoundary>
       </DataContextProvider>
+     
     </div>
   );
 }
