@@ -6,33 +6,29 @@ import "react-toastify/dist/ReactToastify.css";
 import "./signin.scss";
 import { useAuth } from "../../context/AuthContext";
 
-
-
 const SignIn = () => {
   const navigate = useNavigate();
-  const { signIn } = useAuth(); 
+  const { signIn } = useAuth();
   const [loading, setLoading] = useState(false);
-  
-  const handleAuthentication = async (values:any) => {
-  try {
-  setLoading(true);
-  const { email, password } = values;
-  const success = await signIn(email, password);
-  
-  if (success) {
-  toast.success("Sign-in successful");
-  navigate("/dashboard"); 
-  } else {
-  toast.error("Invalid email or password");
-  }
-  } catch (error) {
-  
-  toast.error("An error occurred during sign-in");
-  } finally {
-  setLoading(false);
-  }
+
+  const handleAuthentication = async (values: any) => {
+    try {
+      setLoading(true);
+      const { email, password } = values;
+      const success = await signIn(email, password);
+
+      if (success) {
+        toast.success("Sign-in successful");
+        navigate("/dashboard");
+      } else {
+        toast.error("Invalid email or password");
+      }
+    } catch (error) {
+      toast.error("An error occurred during sign-in");
+    } finally {
+      setLoading(false);
+    }
   };
-  
 
   return (
     <div className="signin-container">
@@ -73,9 +69,9 @@ const SignIn = () => {
             <Button
               htmlType="submit"
               className="custom-button"
-              loading={loading} 
+              loading={loading}
             >
-              {loading ? "Signing In" : "Sign In"}
+              {loading ? "Signing In" : "Signin"}
             </Button>
           </Form.Item>
         </Form>
