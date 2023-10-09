@@ -18,5 +18,5 @@ npm test
 Javascript Library: ReactJs\
 CSS FrameWork:Antd\
 Testing library:Jest\
-State Management:Context API
+State Management:Context API\
 Security measures:sensitive data stored in .env for security
