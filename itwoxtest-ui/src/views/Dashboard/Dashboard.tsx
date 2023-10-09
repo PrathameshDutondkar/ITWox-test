@@ -16,7 +16,7 @@ const Dashboard = () => {
         </div>
       )}
       {error && (
-        <div data-testid="error-state">
+        <div data-testid="error-state"> 
           <p>Error: {error}</p>
         </div>
       )}
