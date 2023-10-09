@@ -5,11 +5,20 @@
   justify-content: space-between;
   padding: 1% 2%;
   gap: 2rem;
-  background: linear-gradient(113deg, rgba(73, 136, 184, 0.2) 20.86%, rgba(184, 75, 75, 0) 64.79%), linear-gradient(184deg, rgba(140, 207, 219, 0.6) -17.2%, rgba(134, 225, 236, 0.60) 36.12%, rgba(255, 255, 255, 0.60) 86.62%);
-
+  background: linear-gradient(
+      113deg,
+      rgba(73, 136, 184, 0.2) 20.86%,
+      rgba(184, 75, 75, 0) 64.79%
+    ),
+    linear-gradient(
+      184deg,
+      rgba(140, 207, 219, 0.6) -17.2%,
+      rgba(134, 225, 236, 0.6) 36.12%,
+      rgba(255, 255, 255, 0.6) 86.62%
+    );
 
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  
+
   .sign-out-button,
   .sign-in-button {
     padding: 10px 20px;

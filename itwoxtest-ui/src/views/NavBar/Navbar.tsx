@@ -1,8 +1,7 @@
 import React, { useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "../../assets/it-wox-logo.svg";
-import { useAuth } from "../../context/AuthContext"
-
+import { useAuth } from "../../context/AuthContext";
 
 import "react-toastify/dist/ReactToastify.css";
 import "./navbar.scss";
@@ -15,14 +14,14 @@ const Navbar = () => {
   const shouldShowNavbar = location.pathname !== "/signin";
 
   const handleSignOut = () => {
-    signOut(); 
+    signOut();
     navigate("/");
   };
 
   useEffect(() => {
-    if (location.pathname === "/") {
-      handleSignOut();
-    }
+    // if (location.pathname === "/") {
+    //   handleSignOut();
+    // }
   }, [location.pathname]);
 
   return shouldShowNavbar ? (

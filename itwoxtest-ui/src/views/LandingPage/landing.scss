@@ -4,13 +4,14 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../assets/Landing.jpeg");
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../../assets/Landing.jpeg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   color: #fff;
-  width: 100%; /* Set width to 100% to cover the entire viewport */
-  height: 92vh; /* Set height to 100vh to cover the entire viewport height */
+  width: 100%;
+  height: 92vh;
 }
 
 .landing-overlay {

@@ -11,7 +11,7 @@ const SignIn = () => {
   const { signIn } = useAuth();
   const [loading, setLoading] = useState(false);
 
-  const handleAuthentication = async (values: any) => {
+  const handleAuthentication = async (values: { email: string; password: string }) => {
     try {
       setLoading(true);
       const { email, password } = values;
