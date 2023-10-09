@@ -1,31 +1,37 @@
-.navbar-container{
-    list-style: none;
-        display: flex;
-        width: 96%;
-        justify-content: flex-end;
-        padding: 2% 2%;
-        gap: 2rem;
+.navbar-container {
+  list-style: none;
+  display: flex;
+  width: 96%;
+  justify-content: space-between;
+  padding: 1% 2%;
+  gap: 2rem;
+  background: linear-gradient(
+      113deg,
+      rgba(73, 136, 184, 0.2) 20.86%,
+      rgba(184, 75, 75, 0) 64.79%
+    ),
+    linear-gradient(
+      184deg,
+      rgba(140, 207, 219, 0.6) -17.2%,
+      rgba(134, 225, 236, 0.6) 36.12%,
+      rgba(255, 255, 255, 0.6) 86.62%
+    );
 
-    .menu-container{
-        display: flex;
-        gap: 2rem;
-        .tab {
-        font-family: "Arial", sans-serif;
-        font-size: 1vw;
-        font-style: normal;
-        font-weight: 700;
-        line-height: normal;
-        letter-spacing: 0.36px;
-        color: #0a0a0a;
-        text-decoration: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 
-        &:hover,
-        &:active {
-          color: #00a3b7;
-          border-bottom: 2px solid #00a3b7;
-          padding-bottom: 5px;
-        }
-      }
-        
-    }
+  .sign-out-button,
+  .sign-in-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  .sign-out-button:hover,
+  .sign-in-button:hover {
+    background-color: #0056b3;
+  }
 }

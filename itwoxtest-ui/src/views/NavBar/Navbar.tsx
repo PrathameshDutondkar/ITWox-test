@@ -1,33 +1,49 @@
-import React from "react";
-import "./navbar.scss";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import logo from "../../assets/it-wox-logo.svg";
+import { useAuth } from "../../context/AuthContext";
 
-const Navbar= () => {
-  const email = localStorage.getItem("user");
+import "react-toastify/dist/ReactToastify.css";
+import "./navbar.scss";
+
+const Navbar = () => {
+  const { user, signOut } = useAuth();
+  const location = useLocation();
   const navigate = useNavigate();
 
+  const shouldShowNavbar = location.pathname !== "/signin";
+
   const handleSignOut = () => {
-    localStorage.removeItem("user");
+    signOut();
     navigate("/");
   };
 
-  return (
-    <div className="navbar-container">
+  useEffect(() => {
+    // if (location.pathname === "/") {
+    //   handleSignOut();
+    // }
+  }, [location.pathname]);
+
+  return shouldShowNavbar ? (
+    <nav className="navbar-container">
+      <span>
+        <img src={logo} alt="IT WOX Logo" />
+      </span>
       <span className="menu-container">
         <li key="Get help with research" className="tab-li">
-          {email ? (
-            <div className="tab" onClick={handleSignOut}>
+          {user ? (
+            <button onClick={handleSignOut} className="sign-out-button">
               Sign Out
-            </div>
+            </button>
           ) : (
-            <Link to="/signin" className="tab">
-              Sign In
+            <Link to="/signin">
+              <button className="sign-in-button">Sign In</button>
             </Link>
           )}
         </li>
       </span>
-    </div>
-  );
+    </nav>
+  ) : null;
 };
 
 export default Navbar;
