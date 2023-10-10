@@ -29,7 +29,7 @@ interface DataContextProviderProps {
   children: ReactNode;
 }
 
-export const DataContextProvider: React.FC<DataContextProviderProps> = ({ children }) => {
+export const DataContextProvider = ({ children }: DataContextProviderProps) => {
   const [loading, setLoading] = useState(true);
   const [posts, setPosts] = useState<Post[]>([]);
   const [comments, setComments] = useState<Comment[]>([]);
