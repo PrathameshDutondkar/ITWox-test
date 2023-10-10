@@ -7,7 +7,7 @@ cd cd itwoxtest-ui\
 npm install\
 npm start\
 open http://localhost:3000 to view to the app\
-username:prathameshdutondkar@gmail.com\
+username:prathameshdutondkar@gmail.com
 password:Prathamesh@13
 
 ## `Tests`
